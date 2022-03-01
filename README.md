@@ -2,9 +2,12 @@
 # Sveltekit Template
 ```json
 "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "dev": "dotenv -- svelte-kit dev --host",
+    "build": "svelte-kit build",
+    "serve": "vite preview",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "lint": "eslint --ignore-path .gitignore ."
 },
 ```
 
