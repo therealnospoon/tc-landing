@@ -1,1 +1,0 @@
-# Snifty Website
