@@ -1,5 +1,5 @@
-<style lang="scss" global>
-    @import "../styles/main.scss";
-</style>
+<script>
+  import "../app.postcss";
+</script>
 
-<slot></slot>
+<slot />
