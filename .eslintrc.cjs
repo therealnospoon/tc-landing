@@ -15,17 +15,29 @@ module.exports = {
         module  : "readable",
     },
 
+    extends : [
+        "plugin:svelte/recommended",
+    ],
+
     plugins : [
         "@typescript-eslint/eslint-plugin",
-        // "import",
-        // "resolver-typescript",
-        "svelte3",
     ],
 
     overrides : [
+        // {
+        //     files     : [ "*.svelte" ],
+        //     processor : "svelte3/svelte3",
+        // },
         {
-            files     : [ "*.svelte" ],
-            processor : "svelte3/svelte3",
+            files  : [ "*.svelte" ],
+            parser : "svelte-eslint-parser",
+            rules  : {
+                "svelte/indent" : "error",
+                indent          : "off",
+            },
+            parserOptions : {
+                parser : "@typescript-eslint/parser",
+            },
         },
     ],
 
@@ -34,6 +46,100 @@ module.exports = {
     },
 
     rules : {
+        "svelte/prefer-class-directive" : "error",
+        "svelte/prefer-style-directive" : "error",
+        "svelte/valid-compile"          : [
+            "error",
+            {
+                ignoreWarnings : false,
+            },
+        ],
+        "svelte/html-closing-bracket-spacing" : [
+            "error",
+            {
+                startTag       : "never", // or "always" or "ignore"
+                endTag         : "never", // or "always" or "ignore"
+                selfClosingTag : "always", // or "never" or "ignore"
+            },
+        ],
+        "svelte/max-attributes-per-line" : [
+            "error",
+            {
+                multiline  : 1,
+                singleline : 1,
+            },
+        ],
+        "svelte/indent" : [
+            "error",
+            {
+                indent                    : 4,
+                ignoredNodes              : [],
+                switchCase                : 1,
+                alignAttributesVertically : false,
+            },
+        ],
+        "svelte/first-attribute-linebreak" : [
+            "error",
+            {
+                multiline  : "below", // or "beside"
+                singleline : "beside", // "below"
+            },
+        ],
+        "svelte/html-quotes" : [
+            "error",
+            {
+                prefer  : "double", // or "single"
+                dynamic : {
+                    quoted                     : false,
+                    avoidInvalidUnquotedInHTML : false,
+                },
+            },
+        ],
+        "svelte/sort-attributes" : [
+            "error",
+            {
+                order : [
+                // `this` property.
+                    "this",
+                    // `bind:this` directive.
+                    "bind:this",
+                    // `id` attribute.
+                    "id",
+                    // `name` attribute.
+                    "name",
+                    // `slot` attribute.
+                    "slot",
+                    // `--style-props` (Alphabetical order within the same group.)
+                    { match : "/^--/u", sort : "alphabetical" },
+                    // `style` attribute, and `style:` directives.
+                    [ "style", "/^style:/u" ],
+                    // `class` attribute.
+                    "class",
+                    // `class:` directives. (Alphabetical order within the same group.)
+                    { match : "/^class:/u", sort : "alphabetical" },
+                    // other attributes. (Alphabetical order within the same group.)
+                    {
+                        match : [ "!/:/u", "!/^(?:this|id|name|style|class)$/u", "!/^--/u" ],
+                        sort  : "alphabetical",
+                    },
+                    // `bind:` directives (other then `bind:this`), and `on:` directives.
+                    [ "/^bind:/u", "!bind:this", "/^on:/u" ],
+                    // `use:` directives. (Alphabetical order within the same group.)
+                    { match : "/^use:/u", sort : "alphabetical" },
+                    // `transition:` directive.
+                    { match : "/^transition:/u", sort : "alphabetical" },
+                    // `in:` directive.
+                    { match : "/^in:/u", sort : "alphabetical" },
+                    // `out:` directive.
+                    { match : "/^out:/u", sort : "alphabetical" },
+                    // `animate:` directive.
+                    { match : "/^animate:/u", sort : "alphabetical" },
+                    // `let:` directives. (Alphabetical order within the same group.)
+                    { match : "/^let:/u", sort : "alphabetical" },
+                ],
+            },
+        ],
+
         "accessor-pairs"        : "off",
         "array-bracket-spacing" : [ "warn",
             "always",
