@@ -2,7 +2,11 @@ const config = {
     content : [ "./src/**/*.{html,js,svelte,ts}" ],
 
     theme : {
-        extend : {},
+        extend : {
+            fontFamily : {
+                sans : [ "Poppins", "sans-serif" ],
+            },
+        },
     },
 
     plugins : [
@@ -14,24 +18,15 @@ const config = {
         themes : [
             {
                 mytheme : {
-        
-                    primary : "#f3f4f6",
-        
-                    secondary : "#4b5563",
-        
-                    accent : "#4ade80",
-        
-                    neutral : "#292524",
-        
-                    "base-100" : "#000000",
-        
-                    info : "#3b82f6",
-        
-                    success : "#4ade80",
-        
-                    warning : "#fbbf24",
-        
-                    error : "#ef4444",
+                    primary    : "#0094FF",
+                    secondary  : "#D926A9",
+                    accent     : "#1FB2A6",
+                    neutral    : "#191D24",
+                    "base-100" : "#121212",
+                    info       : "#3ABFF8",
+                    success    : "#36D399",
+                    warning    : "#FBBD23",
+                    error      : "#F87272",
                 },
             },
         ],
