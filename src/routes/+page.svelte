@@ -26,6 +26,73 @@
         },
     ];
 
+    const dummyCompData = [
+        {
+            profileName    : "tradingpro1$1102",
+            userFlair      : "Alpha trader",
+            onlineStatus   : "online",
+            lastMonthPlace : 12,
+            weeklyGains    : {
+                amount : 10293.91,
+                roi    : 175.42,
+            },
+            currentStatus : {
+                amount : 80309.92,
+                roi    : 129.42,
+            },
+            joinDate : "1/7/23",
+            pfpPath  : "icons/tc-tutoring.png",
+        },
+        {
+            profileName    : "tradingpro1$1102",
+            userFlair      : "Alpha trader",
+            onlineStatus   : "online",
+            lastMonthPlace : 12,
+            weeklyGains    : {
+                amount : 10293.91,
+                roi    : 175.42,
+            },
+            currentStatus : {
+                amount : 80309.92,
+                roi    : 129.42,
+            },
+            joinDate : "1/7/23",
+            pfpPath  : "icons/tc-tutoring.png",
+        },
+        {
+            profileName    : "tradingpro1$1102",
+            userFlair      : "Alpha trader",
+            onlineStatus   : "online",
+            lastMonthPlace : 12,
+            weeklyGains    : {
+                amount : 10293.91,
+                roi    : 175.42,
+            },
+            currentStatus : {
+                amount : 80309.92,
+                roi    : 129.42,
+            },
+            joinDate : "1/7/23",
+            pfpPath  : "icons/tc-tutoring.png",
+        },
+        {
+            profileName    : "tradingpro1$1102",
+            userFlair      : "Alpha trader",
+            onlineStatus   : "online",
+            lastMonthPlace : 12,
+            weeklyGains    : {
+                amount : 10293.91,
+                roi    : 175.42,
+            },
+            currentStatus : {
+                amount : 80309.92,
+                roi    : 129.42,
+            },
+            joinDate : "1/7/23",
+            pfpPath  : "icons/tc-tutoring.png",
+        },
+    ];
+
 </script>
 
 <div class="flex mb-5">
@@ -81,43 +148,6 @@
                 </div>
             </div>
         {/each}
-        <!-- <div class="w-1/3 py-5 card card-compact card-bordered border-primary bg-card-gradient"
-    >
-        <figure class="p-10 m-3">
-            <img
-                alt="Web camera"
-                src="icons/tc-weeklycalls.png"
-                width="50px"
-            />
-        </figure>
-        <div class="card-body">
-            <h2 class="card-title">Weekly calls</h2>
-            <p>
-                Join weekly calls with our experienced trader who will
-                provide analysis on the current market trends, share their
-                trading techniques, and answer any questions you may have.
-            </p>
-        </div>
-    </div> -->
-        <!-- <div class="w-1/3 py-5 ml-5 card card-compact card-bordered border-primary bg-card-gradient"
-    >
-        <figure class="p-10 m-3">
-            <img
-                alt="Media content"
-                src="icons/tc-educontent.png"
-                width="80px"
-            />
-        </figure>
-        <div class="card-body">
-            <h2 class="card-title">Premium educational content</h2>
-            <p>
-                Covering topics such as market analysis, trading strategies,
-                and risk management. Our education is crafted by experienced
-                traders and updated regularly to reflect the latest market
-                trends and insights.
-            </p>
-        </div>
-    </div> -->
     </div>
 </div>
 
@@ -125,59 +155,83 @@
     <h2 class="max-w-md text-3xl font-medium mb-16">
         Win money in monthly competitions
     </h2>
-    <div class="flex justify-between mt-3">
-        {#each cardData as card}
-            <div class="w-1/3 py-5 card card-compact card-bordered border-primary bg-card-gradient"
-            >
-                <figure class="p-10 m-3">
-                    <img
-                        alt={card.altTxt}
-                        src={card.iconPath}
-                        width={`${card.iconWidth}px`}
-                    />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">{card.title}</h2>
-                    <p>{card.body}</p>
+    <div class="flex flex-col mt-3">
+        <div class="grid grid-cols-4 mb-3">
+            <div class="flex items-center justify-center">User</div>
+            <div class="flex items-center justify-center">Last month</div>
+            <div class="flex items-center justify-center">Weekly gains</div>
+            <div class="flex items-center justify-center">Current status</div>
+        </div>
+        <div class="card-container flex w-full">
+            <div class="grid grid-rows-4 mr-5">
+                <h2 class="flex items-center mb-5">1</h2>
+                <h2 class="flex items-center mb-5">2</h2>
+                <h2 class="flex items-center mb-5">3</h2>
+                <h2 class="flex items-center mb-5">4</h2>
+            </div>
+            <div class="w-full">
+                {#each dummyCompData as dummyCard}
+                    <div class="grid gap-x-4 grid-cols-4 mb-5">
+                        <div class="competition-card bg-card-gradient h-32 border rounded-xl border-primary col-span-4">
+                            <div class="h-full grid grid-cols-4">
+                                <div class="flex flex-col items-center justify-center space-x-3">
+                                    <div class="avatar">
+                                        <div class="mask mask-squircle w-12 h-12">
+                                            <img
+                                                alt="Avatar Tailwind CSS Component"
+                                                src={dummyCard.pfpPath} />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold">{dummyCard.profileName}</div>
+                                        <div class="text-sm opacity-50">{dummyCard.onlineStatus}</div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center justify-center">{dummyCard.lastMonthPlace}</div>
+                                <div class="flex flex-col items-center justify-center">{dummyCard.weeklyGains.amount}</div>
+                                <div class="flex flex-col items-center justify-center">{dummyCard.currentStatus.amount}</div>
+                            </div>
+        
+                        </div>
+                    </div>
+                {/each}
+            </div>
+        </div>
+        <!-- <div class="grid grid-cols-5 mb-3">
+            <div></div>
+            <div class="flex items-center justify-center">User</div>
+            <div class="flex items-center justify-center">Last month</div>
+            <div class="flex items-center justify-center">Weekly gains</div>
+            <div class="flex items-center justify-center">Current status</div>
+        </div>
+      
+        {#each dummyCompData as dummyCard, i}
+            <div class="grid gap-x-4 grid-cols-5 mb-5">
+                <div class="h-full flex items-center justify-center">{i + 1}</div>
+                <div class="competition-card bg-card-gradient h-32 border rounded-xl border-primary col-span-4">
+                    <div class="h-full grid grid-cols-4">
+                        <div class="flex flex-col items-center justify-center space-x-3">
+                            <div class="avatar">
+                                <div class="mask mask-squircle w-12 h-12">
+                                    <img
+                                        alt="Avatar Tailwind CSS Component"
+                                        src={dummyCard.pfpPath} />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="font-bold">{dummyCard.profileName}</div>
+                                <div class="text-sm opacity-50">{dummyCard.onlineStatus}</div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center justify-center">{dummyCard.lastMonthPlace}</div>
+                        <div class="flex flex-col items-center justify-center">{dummyCard.weeklyGains.amount}</div>
+                        <div class="flex flex-col items-center justify-center">{dummyCard.currentStatus.amount}</div>
+                    </div>
+
                 </div>
             </div>
-        {/each}
-        <!-- <div class="w-1/3 py-5 card card-compact card-bordered border-primary bg-card-gradient"
-        >
-            <figure class="p-10 m-3">
-                <img
-                    alt="Web camera"
-                    src="icons/tc-weeklycalls.png"
-                    width="50px"
-                />
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">Weekly calls</h2>
-                <p>
-                    Join weekly calls with our experienced trader who will
-                    provide analysis on the current market trends, share their
-                    trading techniques, and answer any questions you may have.
-                </p>
-            </div>
-        </div> -->
-        <!-- <div class="w-1/3 py-5 ml-5 card card-compact card-bordered border-primary bg-card-gradient"
-        >
-            <figure class="p-10 m-3">
-                <img
-                    alt="Media content"
-                    src="icons/tc-educontent.png"
-                    width="80px"
-                />
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">Premium educational content</h2>
-                <p>
-                    Covering topics such as market analysis, trading strategies,
-                    and risk management. Our education is crafted by experienced
-                    traders and updated regularly to reflect the latest market
-                    trends and insights.
-                </p>
-            </div>
-        </div> -->
+
+        {/each} -->
+        
     </div>
 </div>
