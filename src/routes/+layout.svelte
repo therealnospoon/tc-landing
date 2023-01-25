@@ -7,7 +7,7 @@
 
 <Nav />
 
-<main class="flex justify-center min-h-screen">
+<main class="flex justify-center">
     <div class="max-w-4xl w-full py-10 px-5 md:px-0">
         <slot />
         <!-- <article class="prose">
