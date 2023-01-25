@@ -95,13 +95,21 @@
 
 </script>
 
-<div class="flex mb-5">
-    <div class="flex flex-col justify-center w-full">
+<div class="flex flex-col md:flex-row-reverse mb-5">
+    <div class="m-auto">
+        <img
+            class="max-w-xs"
+            alt="rocketship-graphic"
+            src="images/tc-rocketship.png"
+        />
+    </div>
+    <div class="grow flex flex-col justify-center w-full">
         <div class="flex items-center mb-3">
             <img
                 class="h-4 m-0 mr-2"
                 alt=""
-                src="icons/tc-modern-logo.png" />
+                src="icons/tc-modern-logo.png"
+            />
             <h1 class="text-xl">Trade Centre</h1>
         </div>
         <div class="mb-6">
@@ -119,21 +127,14 @@
             >
         </div>
     </div>
-    <div>
-        <img
-            class="max-w-xs"
-            alt="rocketship-graphic"
-            src="images/tc-rocketship.png"
-        />
-    </div>
 </div>
 <div class="mb-16">
     <h2 class="max-w-md text-3xl font-medium mb-16">
         Gain access to premium trading signals
     </h2>
-    <div class="flex justify-between mt-3">
+    <div class="grid grid-cols-1 gap-y-4 md:px-0 md:gap-y-0 md:gap-x-4 md:grid-cols-3 justify-between mt-3">
         {#each cardData as card}
-            <div class={`w-1/3 py-5 ${card.xMargin} card card-compact card-bordered border-primary bg-card-gradient`}
+            <div class={"py-5 card md:card-compact card-bordered border-primary bg-card-gradient"}
             >
                 <figure class="p-10 m-3">
                     <img

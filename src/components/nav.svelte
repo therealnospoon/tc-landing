@@ -3,7 +3,7 @@
 </script>
 
 <nav class="flex justify-center ">
-    <div class="max-w-4xl w-full py-3">
+    <div class="max-w-4xl w-full py-3 px-5 md:px-0">
         <div
             class="flex justify-end w-full"
             class:justify-between={$page.url.pathname !== "/"}
