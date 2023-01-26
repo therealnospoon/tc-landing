@@ -95,7 +95,7 @@
 
 </script>
 
-<div class="flex flex-col h-screen md:h-auto md:flex-row-reverse mb-5">
+<div class="flex flex-col justify-center mb-10 md:flex-row-reverse md:mb-5">
     <div class="flex justify-center md:justify-end mb-5 md:m-auto">
         <img
             class="max-w-[70%] md:max-w-full"
@@ -132,7 +132,7 @@
     <h2 class="max-w-md text-3xl font-medium mb-16">
         Gain access to premium trading signals
     </h2>
-    <div class="grid grid-cols-1 gap-y-6 md:gap-y-4 md:px-0 md:gap-y-0 md:gap-x-4 md:grid-cols-3 justify-between mt-3">
+    <div class="grid grid-cols-1 gap-y-6 md:px-0 sm:gap-x-3 md:gap-x-4 md:grid-cols-3 justify-between mt-3">
         {#each cardData as card}
             <div class={"py-5 card md:card-compact card-bordered border-primary bg-card-gradient"}
             >
