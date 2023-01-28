@@ -156,83 +156,76 @@
     <h2 class="max-w-md text-3xl font-medium mb-16">
         Win money in monthly competitions
     </h2>
+
+    <!--The TABLE way-->
+    <!-- <table class="table mt-3">
+        table headers
+        <thead>
+            <tr>
+                <th></th>
+                <th>User</th>
+                <th>Weekly gains</th>
+                <th>Current status</th>
+            </tr>
+        </thead>
+        table body
+        <tbody class="competition-table-body">
+            {#each dummyCompData as dummyCard, i}
+                <tr>
+                    <th>
+                        <h2>{i + 1}</h2>
+                    </th>
+                    <td class="flex flex-col items-center justify-center space-x-3">
+                        <div class="avatar">
+                            <div class="mask mask-squircle w-12 h-12">
+                                <img
+                                    alt="Avatar Tailwind CSS Component"
+                                    src={dummyCard.pfpPath} />
+                            </div>
+                        </div>
+                        <div>
+                            <div class="font-bold">{dummyCard.profileName}</div>
+                            <div class="text-sm opacity-50">{dummyCard.onlineStatus}</div>
+                        </div>
+                    </td>
+                    <td>{dummyCard.weeklyGains.amount}</td>
+                    <td>{dummyCard.currentStatus.amount}</td>
+                </tr>
+            {/each}
+        </tbody>
+    </table> -->
+
+    <!-- The GRID COLUMN WAY -->
     <div class="flex flex-col mt-3">
-        <div class="grid grid-cols-4 mb-3">
-            <div class="flex items-center justify-center">User</div>
-            <div class="flex items-center justify-center">Last month</div>
-            <div class="flex items-center justify-center">Weekly gains</div>
-            <div class="flex items-center justify-center">Current status</div>
+        <div class="flex justify-center mb-3">
+            <h1 class="mb-5">Leaderboard</h1>
         </div>
-        <div class="card-container flex w-full">
-            <div class="grid grid-rows-4 mr-5">
-                <h2 class="flex items-center mb-5">1</h2>
-                <h2 class="flex items-center mb-5">2</h2>
-                <h2 class="flex items-center mb-5">3</h2>
-                <h2 class="flex items-center mb-5">4</h2>
-            </div>
-            <div class="w-full">
-                {#each dummyCompData as dummyCard}
-                    <div class="grid gap-x-4 grid-cols-4 mb-5">
-                        <div class="competition-card bg-card-gradient h-32 border rounded-xl border-primary col-span-4">
-                            <div class="h-full grid grid-cols-4">
-                                <div class="flex flex-col items-center justify-center space-x-3">
-                                    <div class="avatar">
-                                        <div class="mask mask-squircle w-12 h-12">
-                                            <img
-                                                alt="Avatar Tailwind CSS Component"
-                                                src={dummyCard.pfpPath} />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold">{dummyCard.profileName}</div>
-                                        <div class="text-sm opacity-50">{dummyCard.onlineStatus}</div>
+        <div class="card-container flex flex-col items-center">
+            {#each dummyCompData as dummyCard}
+                <div class="mb-3 w-full md:w-1/2">
+                    <div class="competition-card bg-card-gradient border rounded-xl border-primary p-2 md:p-4">
+                        <div class="flex justify-between">
+                            <div class="flex items-center mr-3">
+                                <div class="avatar">
+                                    <div class="mask mask-squircle w-12 h-12 mb-1 mr-4">
+                                        <img
+                                            alt="Avatar Tailwind CSS Component"
+                                            src={dummyCard.pfpPath} />
                                     </div>
                                 </div>
-                                <div class="flex flex-col items-center justify-center">{dummyCard.lastMonthPlace}</div>
-                                <div class="flex flex-col items-center justify-center">{dummyCard.weeklyGains.amount}</div>
-                                <div class="flex flex-col items-center justify-center">{dummyCard.currentStatus.amount}</div>
-                            </div>
-        
-                        </div>
-                    </div>
-                {/each}
-            </div>
-        </div>
-        <!-- <div class="grid grid-cols-5 mb-3">
-            <div></div>
-            <div class="flex items-center justify-center">User</div>
-            <div class="flex items-center justify-center">Last month</div>
-            <div class="flex items-center justify-center">Weekly gains</div>
-            <div class="flex items-center justify-center">Current status</div>
-        </div>
-      
-        {#each dummyCompData as dummyCard, i}
-            <div class="grid gap-x-4 grid-cols-5 mb-5">
-                <div class="h-full flex items-center justify-center">{i + 1}</div>
-                <div class="competition-card bg-card-gradient h-32 border rounded-xl border-primary col-span-4">
-                    <div class="h-full grid grid-cols-4">
-                        <div class="flex flex-col items-center justify-center space-x-3">
-                            <div class="avatar">
-                                <div class="mask mask-squircle w-12 h-12">
-                                    <img
-                                        alt="Avatar Tailwind CSS Component"
-                                        src={dummyCard.pfpPath} />
+                                <div>
+                                    <p class="text-xs sm:text-base">{dummyCard.profileName}</p>
+                                    <p class="text-xs sm:text-sm text-green-300 opacity-50"><i>{dummyCard.onlineStatus}</i></p>
                                 </div>
                             </div>
-                            <div>
-                                <div class="font-bold">{dummyCard.profileName}</div>
-                                <div class="text-sm opacity-50">{dummyCard.onlineStatus}</div>
+                            <div class="flex flex-col justify-center mr-3">
+                                <p class="text-xs sm:text-base font-bold">{dummyCard.currentStatus.amount}</p>
+                                <p class="text-xs sm:text-base">ROI {dummyCard.currentStatus.roi}%</p>
                             </div>
                         </div>
-                        <div class="flex flex-col items-center justify-center">{dummyCard.lastMonthPlace}</div>
-                        <div class="flex flex-col items-center justify-center">{dummyCard.weeklyGains.amount}</div>
-                        <div class="flex flex-col items-center justify-center">{dummyCard.currentStatus.amount}</div>
                     </div>
-
                 </div>
-            </div>
-
-        {/each} -->
-        
+            {/each}
+        </div>
     </div>
 </div>

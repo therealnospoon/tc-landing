@@ -2,9 +2,15 @@ const config = {
     content : [ "./src/**/*.{html,js,svelte,ts}" ],
 
     theme : {
+        colors : {
+            current    : "#BCC4DB",
+        },
         extend : {
             fontFamily : {
                 sans : [ "Poppins", "sans-serif" ],
+            },
+            backgroundImage : {
+                "tc-hexagon"   : "url(images/tc-hexagon-bg.png)",
             },
         },
     },
@@ -17,9 +23,9 @@ const config = {
     daisyui : {
         themes : [
             {
-                mytheme : {
-                    primary    : "#0094FF",
-                    secondary  : "#D926A9",
+                tradeCentre : {
+                    primary    : "#6606fe",
+                    secondary  : "#9c08fa",
                     accent     : "#1FB2A6",
                     neutral    : "#191D24",
                     "base-100" : "#121212",
