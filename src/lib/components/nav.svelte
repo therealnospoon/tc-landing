@@ -1,5 +1,11 @@
 <script>
     import { page } from "$app/stores";
+    import ConnectWallet from "$lib/components/connect-wallet.svelte";
+
+    import { walletStore } from "@svelte-on-solana/wallet-adapter-core";
+
+    console.log($walletStore);
+
 </script>
 
 <nav class="flex justify-center ">
@@ -21,8 +27,7 @@
                 </a>
             {/if}
             <div class="flex justify-end">
-                <button class="btn btn-primary rounded-full">CONNECT WALLET</button
-                >
+                <ConnectWallet />
             </div>
         </div>
     </div>

@@ -1,4 +1,6 @@
 <script>
+    import ConnectWallet from "$lib/components/connect-wallet.svelte";
+
     const cardData = [
         {
             title     : "1-on-1 tutoring",
@@ -120,9 +122,7 @@
             </p>
         </div>
         <div class="flex">
-            <button class="btn btn-primary rounded-full mr-2"
-            >CONNECT WALLET</button
-            >
+            <ConnectWallet />
             <button class="btn btn-outline rounded-full">READ WHITEPAPER</button
             >
         </div>
