@@ -1,6 +1,6 @@
 <script>
+    import Saos from "saos";
     import ConnectWallet from "$lib/components/connect-wallet.svelte";
-    import { fly } from "svelte/transition";
 
     const cardData = [
         {
@@ -99,60 +99,78 @@
 </script>
 
 <div class="flex flex-col justify-center mb-10 md:flex-row-reverse md:mb-5">
-    <div
-        class="flex justify-center md:justify-end mb-5 md:m-auto"
-        transition:fly={{ y : 200, duration : 2000 }}>
-        <img
-            class="max-w-[70%] md:max-w-full"
-            alt="rocketship-graphic"
-            src="images/tc-rocketship.png"
-        />
-    </div>
-    <div class="md:grow flex flex-col justify-center w-full md:mt-0">
-        <div class="flex items-center mb-3">
+    <div class="flex justify-center md:justify-end mb-5 md:m-auto">
+        <Saos
+            animation={"fade-in 700ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both 250ms"}
+            once>
             <img
-                class="h-4 m-0 mr-2"
-                alt=""
-                src="icons/tc-modern-logo.png"
+                class="max-w-[70%] md:max-w-full"
+                alt="rocketship-graphic"
+                src="images/tc-rocketship.png"
             />
-            <h1 class="text-xl">Trade Centre</h1>
-        </div>
-        <div class="mb-6">
-            <h1
-                class="text-5xl font-semibold mb-3"
-                transition:fly={{ y : 200, duration : 2000 }}>Make your own luck.</h1>
-            <p class="max-w-sm">
-                A community of traders that build success through shared
-                insight.
-            </p>
-        </div>
-        <div class="flex">
-            <ConnectWallet />
-            <button class="btn btn-outline rounded-full">READ WHITEPAPER</button
-            >
-        </div>
+        </Saos>
     </div>
+
+    <Saos
+        animation={"fade-in 700ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both 250ms"}
+        once>
+        <div class="md:grow flex flex-col justify-center w-full md:mt-0">
+            <Saos
+                animation={"from-below 500ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both 300ms"}
+                once>
+                <div class="flex items-center mb-3">
+                    <img
+                        class="h-4 m-0 mr-2"
+                        alt=""
+                        src="icons/tc-modern-logo.png"
+                    />
+                    <h1 class="text-xl">Trade Centre</h1>
+                </div>
+            </Saos>
+            <div class="mb-6">
+                <Saos
+                    animation={"from-below 500ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both 400ms"}
+                    once>
+                    <h1 class="text-5xl font-semibold mb-3">Make your own luck.</h1>
+                </Saos>
+               
+                <p class="max-w-sm">
+                    A community of traders that build success through shared
+                    insight.
+                </p>
+             
+            </div>
+            <div class="flex">
+               
+                <ConnectWallet />
+               
+                <button class="btn btn-outline rounded-full">READ WHITEPAPER</button>
+    
+            </div>
+        </div>
+    </Saos>
 </div>
 <div class="mb-16">
     <h2 class="max-w-md text-3xl font-medium mb-16">
         Gain access to premium trading signals
     </h2>
     <div class="grid grid-cols-1 gap-y-6 md:px-0 sm:gap-x-3 md:gap-x-4 md:grid-cols-3 justify-between mt-3">
-        {#each cardData as card}
-            <div class={"py-5 card md:card-compact card-bordered border-primary bg-card-gradient"}
-            >
-                <figure class="p-10 m-3">
-                    <img
-                        alt={card.altTxt}
-                        src={card.iconPath}
-                        width={`${card.iconWidth}px`}
-                    />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">{card.title}</h2>
-                    <p>{card.body}</p>
+        {#each cardData as card, idx}
+            <Saos animation={`from-below 750ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both ${100 * idx}ms`}>
+                <div class={"py-5 card md:card-compact card-bordered border-primary bg-card-gradient"}>
+                    <figure class="p-10 m-3">
+                        <img
+                            alt={card.altTxt}
+                            src={card.iconPath}
+                            width={`${card.iconWidth}px`}
+                        />
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">{card.title}</h2>
+                        <p>{card.body}</p>
+                    </div>
                 </div>
-            </div>
+            </Saos>
         {/each}
     </div>
 </div>
@@ -206,29 +224,31 @@
             <h1 class="mb-5">Leaderboard</h1>
         </div>
         <div class="card-container flex flex-col items-center">
-            {#each dummyCompData as dummyCard}
+            {#each dummyCompData as dummyCard, idx}
                 <div class="mb-3 w-full md:w-1/2">
-                    <div class="competition-card bg-card-gradient border rounded-xl border-primary p-2 md:p-4">
-                        <div class="flex justify-between">
-                            <div class="flex items-center mr-3">
-                                <div class="avatar">
-                                    <div class="mask mask-squircle w-12 h-12 mb-1 mr-4">
-                                        <img
-                                            alt="Avatar Tailwind CSS Component"
-                                            src={dummyCard.pfpPath} />
+                    <Saos animation={`from-below 750ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both ${100 * idx}ms`}>
+                        <div class="competition-card bg-card-gradient border rounded-xl border-primary p-2 md:p-4">
+                            <div class="flex justify-between">
+                                <div class="flex items-center mr-3">
+                                    <div class="avatar">
+                                        <div class="mask mask-squircle w-12 h-12 mb-1 mr-4">
+                                            <img
+                                                alt="Avatar Tailwind CSS Component"
+                                                src={dummyCard.pfpPath} />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs sm:text-base">{dummyCard.profileName}</p>
+                                        <p class="text-xs sm:text-sm text-green-300 opacity-50"><i>{dummyCard.onlineStatus}</i></p>
                                     </div>
                                 </div>
-                                <div>
-                                    <p class="text-xs sm:text-base">{dummyCard.profileName}</p>
-                                    <p class="text-xs sm:text-sm text-green-300 opacity-50"><i>{dummyCard.onlineStatus}</i></p>
+                                <div class="flex flex-col justify-center mr-3">
+                                    <p class="text-xs sm:text-base font-bold">{dummyCard.currentStatus.amount}</p>
+                                    <p class="text-xs sm:text-base">ROI {dummyCard.currentStatus.roi}%</p>
                                 </div>
                             </div>
-                            <div class="flex flex-col justify-center mr-3">
-                                <p class="text-xs sm:text-base font-bold">{dummyCard.currentStatus.amount}</p>
-                                <p class="text-xs sm:text-base">ROI {dummyCard.currentStatus.roi}%</p>
-                            </div>
                         </div>
-                    </div>
+                    </Saos>
                 </div>
             {/each}
         </div>

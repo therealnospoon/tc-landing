@@ -2,10 +2,6 @@
     import { page } from "$app/stores";
     import ConnectWallet from "$lib/components/connect-wallet.svelte";
 
-    import { walletStore } from "@svelte-on-solana/wallet-adapter-core";
-
-    console.log($walletStore);
-
 </script>
 
 <nav class="flex justify-center ">
