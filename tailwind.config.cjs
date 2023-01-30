@@ -10,7 +10,7 @@ const config = {
                 sans : [ "Poppins", "sans-serif" ],
             },
             backgroundImage : {
-                "tc-hexagon"   : "url(images/tc-hexagon-bg.png)",
+                "tc-hexagon"   : "url(images/tc-hexagon-bg.jpg)",
             },
         },
     },

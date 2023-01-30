@@ -1,5 +1,6 @@
 <script>
     import ConnectWallet from "$lib/components/connect-wallet.svelte";
+    import { fly } from "svelte/transition";
 
     const cardData = [
         {
@@ -98,7 +99,9 @@
 </script>
 
 <div class="flex flex-col justify-center mb-10 md:flex-row-reverse md:mb-5">
-    <div class="flex justify-center md:justify-end mb-5 md:m-auto">
+    <div
+        class="flex justify-center md:justify-end mb-5 md:m-auto"
+        transition:fly={{ y : 200, duration : 2000 }}>
         <img
             class="max-w-[70%] md:max-w-full"
             alt="rocketship-graphic"
@@ -115,7 +118,9 @@
             <h1 class="text-xl">Trade Centre</h1>
         </div>
         <div class="mb-6">
-            <h1 class="text-5xl font-semibold mb-3">Make your own luck.</h1>
+            <h1
+                class="text-5xl font-semibold mb-3"
+                transition:fly={{ y : 200, duration : 2000 }}>Make your own luck.</h1>
             <p class="max-w-sm">
                 A community of traders that build success through shared
                 insight.
