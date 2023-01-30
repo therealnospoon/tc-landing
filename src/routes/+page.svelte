@@ -99,56 +99,56 @@
 </script>
 
 <div class="flex flex-col justify-center mb-10 md:flex-row-reverse md:mb-5">
+  
     <div class="flex justify-center md:justify-end mb-5 md:m-auto">
         <Saos
             animation={"fade-in 700ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both 250ms"}
             once>
             <img
-                class="max-w-[70%] md:max-w-full"
+                class="max-w-[70%] md:max-w-full m-auto"
                 alt="rocketship-graphic"
                 src="images/tc-rocketship.png"
             />
         </Saos>
     </div>
-
-    <Saos
-        animation={"fade-in 700ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both 250ms"}
-        once>
-        <div class="md:grow flex flex-col justify-center w-full md:mt-0">
+    <div class="md:grow flex flex-col justify-center w-full md:mt-0">
+        <Saos
+            animation={"from-below 700ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both 300ms"}
+            once>
+            <div class="flex items-center mb-3">
+                <img
+                    class="h-4 m-0 mr-2"
+                    alt=""
+                    src="icons/tc-modern-logo.png"
+                />
+                <h1 class="text-xl">Trade Centre</h1>
+            </div>
+        </Saos>
+            
+        <div class="mb-6">
             <Saos
-                animation={"from-below 500ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both 300ms"}
+                animation={"from-below 700ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both 400ms"}
                 once>
-                <div class="flex items-center mb-3">
-                    <img
-                        class="h-4 m-0 mr-2"
-                        alt=""
-                        src="icons/tc-modern-logo.png"
-                    />
-                    <h1 class="text-xl">Trade Centre</h1>
-                </div>
+                <h1 class="text-5xl font-semibold mb-3">Make your own luck.</h1>
             </Saos>
-            <div class="mb-6">
-                <Saos
-                    animation={"from-below 500ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both 400ms"}
-                    once>
-                    <h1 class="text-5xl font-semibold mb-3">Make your own luck.</h1>
-                </Saos>
-               
+            <Saos
+                animation={"from-below 700ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both 600ms"}
+                once>
                 <p class="max-w-sm">
                     A community of traders that build success through shared
                     insight.
                 </p>
-             
-            </div>
-            <div class="flex">
-               
-                <ConnectWallet />
-               
-                <button class="btn btn-outline rounded-full">READ WHITEPAPER</button>
-    
-            </div>
+            </Saos>
         </div>
-    </Saos>
+        <div class="flex">
+               
+            <ConnectWallet />
+               
+            <button class="btn btn-outline rounded-full">READ WHITEPAPER</button>
+    
+        </div>
+    </div>
+    
 </div>
 <div class="mb-16">
     <h2 class="max-w-md text-3xl font-medium mb-16">
@@ -156,19 +156,20 @@
     </h2>
     <div class="grid grid-cols-1 gap-y-6 md:px-0 sm:gap-x-3 md:gap-x-4 md:grid-cols-3 justify-between mt-3">
         {#each cardData as card, idx}
-            <Saos animation={`from-below 750ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both ${100 * idx}ms`}>
-                <div class={"py-5 card md:card-compact card-bordered border-primary bg-card-gradient"}>
+            <Saos
+                animation={`fade-in 750ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both ${300 * idx}ms`}
+                once>
+                <div class={"grid grid-flow-row min-h-[450px] p-5 card card-bordered border-primary bg-card-gradient"}>
                     <figure class="p-10 m-3">
                         <img
+                            class="max-w-auto max-h-12"
                             alt={card.altTxt}
                             src={card.iconPath}
-                            width={`${card.iconWidth}px`}
+                               
                         />
                     </figure>
-                    <div class="card-body">
-                        <h2 class="card-title">{card.title}</h2>
-                        <p>{card.body}</p>
-                    </div>
+                    <h2 class="card-title">{card.title}</h2>
+                    <p>{card.body}</p>
                 </div>
             </Saos>
         {/each}
@@ -179,46 +180,6 @@
     <h2 class="max-w-md text-3xl font-medium mb-16">
         Win money in monthly competitions
     </h2>
-
-    <!--The TABLE way-->
-    <!-- <table class="table mt-3">
-        table headers
-        <thead>
-            <tr>
-                <th></th>
-                <th>User</th>
-                <th>Weekly gains</th>
-                <th>Current status</th>
-            </tr>
-        </thead>
-        table body
-        <tbody class="competition-table-body">
-            {#each dummyCompData as dummyCard, i}
-                <tr>
-                    <th>
-                        <h2>{i + 1}</h2>
-                    </th>
-                    <td class="flex flex-col items-center justify-center space-x-3">
-                        <div class="avatar">
-                            <div class="mask mask-squircle w-12 h-12">
-                                <img
-                                    alt="Avatar Tailwind CSS Component"
-                                    src={dummyCard.pfpPath} />
-                            </div>
-                        </div>
-                        <div>
-                            <div class="font-bold">{dummyCard.profileName}</div>
-                            <div class="text-sm opacity-50">{dummyCard.onlineStatus}</div>
-                        </div>
-                    </td>
-                    <td>{dummyCard.weeklyGains.amount}</td>
-                    <td>{dummyCard.currentStatus.amount}</td>
-                </tr>
-            {/each}
-        </tbody>
-    </table> -->
-
-    <!-- The GRID COLUMN WAY -->
     <div class="flex flex-col mt-3">
         <div class="flex justify-center mb-3">
             <h1 class="mb-5">Leaderboard</h1>
@@ -226,7 +187,9 @@
         <div class="card-container flex flex-col items-center">
             {#each dummyCompData as dummyCard, idx}
                 <div class="mb-3 w-full md:w-1/2">
-                    <Saos animation={`from-below 750ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both ${100 * idx}ms`}>
+                    <Saos
+                        animation={`from-below 750ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both ${200 * idx}ms`}
+                        once>
                         <div class="competition-card bg-card-gradient border rounded-xl border-primary p-2 md:p-4">
                             <div class="flex justify-between">
                                 <div class="flex items-center mr-3">
