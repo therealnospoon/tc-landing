@@ -45,20 +45,20 @@
     <button
         class="btn btn-primary rounded-full px-2 mr-2"
         on:click={disconnect}>
-        <img
+        <!-- <img
             class="h-5 mr-2"
             alt=""
-            src="https://raw.githubusercontent.com/qudo-code/demo--tiplink/main/static/phantom.svg">
+            src="https://raw.githubusercontent.com/qudo-code/demo--tiplink/main/static/phantom.svg"> -->
         {shortenAddress($walletStore.publicKey?.toBase58() || "")}
     </button>
 {:else}
     <button
         class="btn btn-primary rounded-full px-2 mr-2"
         on:click={() => (showConnectWallet  = true)}>
-        <img
+        <!-- <img
             class="h-5 mr-2"
             alt=""
-            src="https://raw.githubusercontent.com/qudo-code/demo--tiplink/main/static/phantom.svg">
+            src="https://raw.githubusercontent.com/qudo-code/demo--tiplink/main/static/phantom.svg"> -->
         Connect Wallet
     </button>
 {/if}

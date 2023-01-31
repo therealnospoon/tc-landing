@@ -4,7 +4,7 @@
 
 </script>
 
-<nav class="flex justify-center ">
+<nav class="flex justify-center relative z-50">
     <div class="max-w-4xl w-full py-3 px-5 md:px-0">
         <div
             class="flex justify-end w-full"

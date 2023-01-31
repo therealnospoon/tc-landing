@@ -1,8 +1,6 @@
 <script lang="ts">
     import Saos from "saos";
     import ConnectWallet from "$lib/components/connect-wallet.svelte";
-    import lottie from "lottie-web";
-    import { onMount } from "svelte";
 
     const cardData = [
         {
@@ -98,34 +96,21 @@
         },
     ];
 
-    let rocketContainer : HTMLElement;
-
-    onMount(() => {
-        lottie.loadAnimation({
-            container : rocketContainer,
-            renderer  : "svg",
-            loop      : true,
-            autoplay  : true,
-            path      : "https://assets3.lottiefiles.com/packages/lf20_4tg3fb79.json",
-        });
-    }
-    );
 </script>
 
-<div class="flex flex-col justify-center mb-10 md:flex-row-reverse md:mb-5">
-  
+<div class="flex flex-col justify-center mb-10 md:flex-row-reverse md:mb-5 relative">
+    <div class="w-[120vw] h-screen bg-tc-hexagon bg-contain bg-no-repeat bg-left absolute top-0 -left-1/3 z-[-10] mix-blend-plus-lighter">
+    </div>
     <div class="flex justify-center md:justify-end mb-5 md:m-auto">
         <Saos
             animation={"fade-in 700ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both 250ms"}
             once>
-            <div
-                bind:this={rocketContainer}
-                class="max-w-[70%] md:max-w-full m-auto">
-                <!-- <img
+            <div class="max-w-[70%] md:max-w-full m-auto">
+                <img
                     class="max-w-[70%] md:max-w-full m-auto"
                     alt="rocketship-graphic"
                     src="images/tc-rocketship.png"
-                /> -->
+                />
             </div>
         </Saos>
     </div>
@@ -168,7 +153,9 @@
     </div>
     
 </div>
-<div class="mb-16">
+<div class="mb-16 relative">
+    <div class="w-[120vw] h-screen bg-tc-hexagon bg-contain bg-no-repeat bg-right absolute top-0 -left-3/4 z-[-10] mix-blend-plus-lighter">
+    </div>
     <h2 class="max-w-md text-3xl font-medium mb-16">
         Gain access to premium trading signals
     </h2>
@@ -194,7 +181,9 @@
     </div>
 </div>
 
-<div>
+<div class="relative">
+    <div class="w-[120vw] h-screen bg-tc-hexagon bg-contain bg-no-repeat bg-left absolute top-0 -left-1/3 z-[-10] mix-blend-plus-lighter">
+    </div>
     <h2 class="max-w-md text-3xl font-medium mb-16">
         Win money in monthly competitions
     </h2>
@@ -220,7 +209,7 @@
                                     </div>
                                     <div>
                                         <p class="text-xs sm:text-base">{dummyCard.profileName}</p>
-                                        <p class="text-xs sm:text-sm text-green-300 opacity-50"><i>{dummyCard.onlineStatus}</i></p>
+                                        <p class="text-xs sm:text-sm text-green-200 opacity-50"><i>{dummyCard.onlineStatus}</i></p>
                                     </div>
                                 </div>
                                 <div class="flex flex-col justify-center mr-3">

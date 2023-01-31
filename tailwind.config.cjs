@@ -2,15 +2,12 @@ const config = {
     content : [ "./src/**/*.{html,js,svelte,ts}" ],
 
     theme : {
-        colors : {
-            current    : "#BCC4DB",
-        },
         extend : {
             fontFamily : {
                 sans : [ "Poppins", "sans-serif" ],
             },
             backgroundImage : {
-                "tc-hexagon"   : "url(images/tc-hexagon-bg.jpg)",
+                "tc-hexagon"   : "url(images/tc-hexagon-bg.png)",
             },
         },
     },
