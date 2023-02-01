@@ -1,7 +1,15 @@
 <script>
     import { page } from "$app/stores";
+    import { goto } from "$app/navigation";
     import ConnectWallet from "$lib/components/connect-wallet.svelte";
     import { walletStore } from "@svelte-on-solana/wallet-adapter-core";
+    import { onMount } from "svelte";
+
+    onMount(() => {
+        if($page.url.pathname !== "/" && !$walletStore.connected) {
+            goto("/");
+        }
+    });
 
 </script>
 
@@ -13,7 +21,7 @@
         >
             {#if $page.url.pathname !== "/"}
                 <a
-                    class="link flex items-center"
+                    class="link no-underline flex items-center"
                     href="/">
                     <img
                         class="h-4 m-0 mr-2"
@@ -24,16 +32,15 @@
                 </a>
             {/if}
             <div class="flex justify-end">
+                {#if $walletStore.connected && $page.url.pathname !== "/page/profile"}
+                    <a
+                        class="btn rounded-full btn-outline border-primary hover:bg-primary hover:text-white hover:border-primary mr-2"
+                        href="/page/profile">
+                        Go to profile
+                    </a>
+                {/if}
                 <ConnectWallet />
             </div>
-            {#if $walletStore.connected}
-                <a
-                    class="btn rounded-md"
-                    href="/page/profile">
-                    Go to profile
-                </a>
-
-            {/if}
         </div>
     </div>
 </nav>

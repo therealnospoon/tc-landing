@@ -1,6 +1,8 @@
 <script lang="ts">
     import { clusterApiUrl } from "@solana/web3.js";
     import { walletStore } from "@svelte-on-solana/wallet-adapter-core";
+    import { goto } from "$app/navigation";
+
     import {
         workSpace,
         WalletProvider,
@@ -36,6 +38,7 @@
     const disconnect = () => {
         if(confirm("Disconnect wallet?")) {
             $walletStore.disconnect();
+            goto("/");
         }
     };
 
@@ -43,12 +46,12 @@
 
 {#if $walletStore.connected}
     <button
-        class="btn btn-primary rounded-full px-2 mr-2"
+        class="btn bg-card-gradient rounded-md px-2 mr-2"
         on:click={disconnect}>
-        <!-- <img
+        <img
             class="h-5 mr-2"
             alt=""
-            src="https://raw.githubusercontent.com/qudo-code/demo--tiplink/main/static/phantom.svg"> -->
+            src="https://raw.githubusercontent.com/qudo-code/demo--tiplink/main/static/phantom.svg">
         {shortenAddress($walletStore.publicKey?.toBase58() || "")}
     </button>
 {:else}

@@ -6,5 +6,5 @@
     specific example of my work or a lesson that I've learned. I hope that by
     sharing these examples, I can provide value and inspiration to others who
     are also interested in [insert topic or theme of your blog]. Thank you for
-    joining me on this journey, and I hope you enjoy reading this page!
+    joining me on this journey, and I hope you enjoy reading this page! asdf
 </p>

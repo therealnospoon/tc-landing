@@ -1,6 +1,7 @@
 <script lang="ts">
     import Saos from "saos";
     import ConnectWallet from "$lib/components/connect-wallet.svelte";
+    import { walletStore } from "@svelte-on-solana/wallet-adapter-core";
 
     const cardData = [
         {
@@ -32,67 +33,47 @@
     const dummyCompData = [
         {
             profileName    : "tradingpro1$1102",
-            userFlair      : "Alpha trader",
             onlineStatus   : "online",
             lastMonthPlace : 12,
-            weeklyGains    : {
-                amount : 10293.91,
-                roi    : 175.42,
-            },
-            currentStatus : {
+            currentStatus  : {
                 amount : 80309.92,
                 roi    : 129.42,
             },
             joinDate : "1/7/23",
-            pfpPath  : "icons/tc-tutoring.png",
+            pfpPath  : "/images/pfp1.png",
         },
         {
-            profileName    : "tradingpro1$1102",
-            userFlair      : "Alpha trader",
-            onlineStatus   : "online",
-            lastMonthPlace : 12,
-            weeklyGains    : {
-                amount : 10293.91,
-                roi    : 175.42,
+            profileName    : "yodaweg122",
+            onlineStatus   : "offline",
+            lastMonthPlace : 127,
+            currentStatus  : {
+                amount : 73310.00,
+                roi    : 97.12,
             },
-            currentStatus : {
-                amount : 80309.92,
-                roi    : 129.42,
-            },
-            joinDate : "1/7/23",
-            pfpPath  : "icons/tc-tutoring.png",
+            joinDate : "11/3/22",
+            pfpPath  : "/images/pfp2.png",
         },
         {
-            profileName    : "tradingpro1$1102",
-            userFlair      : "Alpha trader",
+            profileName    : "asdcvcv11232",
             onlineStatus   : "online",
-            lastMonthPlace : 12,
-            weeklyGains    : {
-                amount : 10293.91,
-                roi    : 175.42,
+            lastMonthPlace : 1,
+            currentStatus  : {
+                amount : 69420.69,
+                roi    : 45.40,
             },
-            currentStatus : {
-                amount : 80309.92,
-                roi    : 129.42,
-            },
-            joinDate : "1/7/23",
-            pfpPath  : "icons/tc-tutoring.png",
+            joinDate : "5/14/22",
+            pfpPath  : "/images/pfp3.png",
         },
         {
-            profileName    : "tradingpro1$1102",
-            userFlair      : "Alpha trader",
-            onlineStatus   : "online",
-            lastMonthPlace : 12,
-            weeklyGains    : {
-                amount : 10293.91,
-                roi    : 175.42,
+            profileName    : "boohaww1",
+            onlineStatus   : "offline",
+            lastMonthPlace : 74,
+            currentStatus  : {
+                amount : 38100.58,
+                roi    : 14.89,
             },
-            currentStatus : {
-                amount : 80309.92,
-                roi    : 129.42,
-            },
-            joinDate : "1/7/23",
-            pfpPath  : "icons/tc-tutoring.png",
+            joinDate : "2/12/22",
+            pfpPath  : "/images/pfp4.png",
         },
     ];
 
@@ -144,8 +125,15 @@
             </Saos>
         </div>
         <div class="flex">
-               
-            <ConnectWallet />
+            {#if $walletStore.connected}
+                <a
+                    class="btn btn-outline border-primary hover:bg-primary hover:text-white hover:border-primary rounded-full mr-2"
+                    href="/page/profile">
+                    Go to profile
+                </a>
+            {:else}
+                <ConnectWallet />
+            {/if}
                
             <button class="btn btn-outline rounded-full">READ WHITEPAPER</button>
     
@@ -154,7 +142,7 @@
     
 </div>
 <div class="mb-16 relative">
-    <div class="w-[120vw] h-screen bg-tc-hexagon bg-contain bg-no-repeat bg-right absolute top-0 -left-3/4 z-[-10] mix-blend-plus-lighter">
+    <div class="w-[120vw] h-screen bg-tc-hexagon bg-contain bg-no-repeat bg-right absolute top-0 -left-full z-[-10] mix-blend-plus-lighter">
     </div>
     <h2 class="max-w-md text-3xl font-medium mb-16">
         Gain access to premium trading signals
@@ -209,11 +197,17 @@
                                     </div>
                                     <div>
                                         <p class="text-xs sm:text-base">{dummyCard.profileName}</p>
-                                        <p class="text-xs sm:text-sm text-green-200 opacity-50"><i>{dummyCard.onlineStatus}</i></p>
+                                        <p
+                                            class="text-xs sm:text-sm"
+                                            class:text-gray-600={dummyCard.onlineStatus === "offline"}
+                                            class:text-success={dummyCard.onlineStatus === "online"}
+                                        >
+                                            <i>{dummyCard.onlineStatus}</i>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="flex flex-col justify-center mr-3">
-                                    <p class="text-xs sm:text-base font-bold">{dummyCard.currentStatus.amount}</p>
+                                <div class="flex flex-col justify-center items-end mr-3">
+                                    <p class="text-xs sm:text-base font-bold">${dummyCard.currentStatus.amount}</p>
                                     <p class="text-xs sm:text-base">ROI {dummyCard.currentStatus.roi}%</p>
                                 </div>
                             </div>
