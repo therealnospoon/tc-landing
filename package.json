@@ -50,6 +50,8 @@
   "dependencies": {
     "@solana/wallet-adapter-wallets": "^0.19.11",
     "@svelte-on-solana/wallet-adapter-core": "^1.0.11-alpha.0",
-    "@svelte-on-solana/wallet-adapter-ui": "^1.0.21-alpha.0"
+    "@svelte-on-solana/wallet-adapter-ui": "^1.0.21-alpha.0",
+    "chart.js": "^4.2.0",
+    "svelte-chartjs": "^3.1.2"
   }
 }

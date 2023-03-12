@@ -5,7 +5,7 @@
 
 </script>
 
-<Nav />
+<!-- <Nav /> -->
 
 <main class="flex justify-center ">
     <!-- <div class="w-screen h-screen bg-tc-hexagon bg-cover bg-bottom fixed top-0 left-0 z-[-10]">
