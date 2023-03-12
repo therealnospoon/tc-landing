@@ -223,13 +223,7 @@
 </div>
 
 <div class="flex justify-center items-center">
-    <p>Made by</p>
-    <a
-        class="btn btn-link"
-        href="https://www.matr.world"
-    >
-        Matr
-    </a>
+    <p>© 2023 Trade Centre</p>
 </div>
 
 <!-- <div class="relative">
