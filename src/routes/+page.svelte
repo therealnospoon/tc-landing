@@ -204,7 +204,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:px-0 justify-between mt-3">
         {#each infoCards as card, idx}
             <Saos
-                animation={`from-below 750ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both ${300 * idx}ms`}
+                animation={`from-below 750ms cubic-bezier(0.35, 0.5, 0.65, 0.95) both ${100 * idx}ms`}
                 once>
                 <div class={"grid grid-flow-row min-h-[450px] p-5 card card-bordered border-primary bg-card-gradient"}>
                     <figure class="p-10 m-3">
@@ -222,8 +222,13 @@
     </div>
 </div>
 
-<div class="flex justify-center items-center">
+<div class="flex flex-col justify-center items-center text-xs">
     <p>© 2023 Trade Centre</p>
+    <a
+        class="btn btn-link"
+        href="https://www.matr.world">
+        MATR
+    </a>
 </div>
 
 <!-- <div class="relative">
